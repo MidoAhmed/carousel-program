@@ -1,27 +1,33 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Questions:
 
-## Expanding the ESLint configuration
+- Quelque éléments du design ne sont pas clairs ou manquantes dans Figma tel que:
+   - les interaction avec un programme par exemple lors du survole/click/selection.
+   - le cas d'une liste de programmes vide.
+   - les interactions avec les boutons de la barre de navigation.
+   - le cas d'echec de chargement des programmes.
+   - Les animations et interactions spécifiques sont-elles nécessaires? 
+   - Faut-il gérer la réactivité de la page pour les différents types d'appareils?
+   - Devons-nous gérer la pagination?
+ 
+# Améliorations de Données:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Parmi améliorations possibles dans le jeu de données, 
+    des données supplémentaires pourraient être nécessaires pour gérer certaines fonctionnalités ou améliorer l'expérience utilisateur par exemple:
+   - Ajouter un champ `isFavorite` pour chaque programme.
+   - Ajouter un champ `isWatched` pour chaque programme.
+   - Ajouter un champ `isLiked` pour chaque programme.
+   - Ajouter un champ `isDisliked` pour chaque programme.
+   - Ajouter un champ `isBookmarked` pour chaque programme.
+   - Ajouter un champ `isArchived` pour chaque programme.
+   - Ajouter un champ `isHidden` pour chaque programme.
+   - Ajouter un champ `isBlocked` pour chaque programme.
+   - Ajouter un champ `isReported` pour chaque programme.
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+
+
