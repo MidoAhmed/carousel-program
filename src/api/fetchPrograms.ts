@@ -16,6 +16,7 @@ export function fetchPrograms(operationName: string, variables: Record<string, u
           thumnail {
             id
             url
+            alt
           }
         }
       }

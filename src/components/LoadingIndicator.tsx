@@ -1,5 +1,10 @@
 import React from "react";
 
-export const LoadingIndicator: React.FC = () => {
+/**
+ * A React component that displays a loading indicator.
+ */
+const LoadingIndicator: React.FC = () => {
   return <progress>Loading...</progress>;
 };
+
+export default LoadingIndicator;

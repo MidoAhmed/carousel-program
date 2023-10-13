@@ -8,6 +8,9 @@ interface ProgramCardProps {
   program: Program;
 }
 
+/**
+ * A React component that displays a program card.
+ */
 const ProgramCard = React.memo(({ program }: ProgramCardProps) => (
   <div className="program-card">
     <div className="program-thumnail">
