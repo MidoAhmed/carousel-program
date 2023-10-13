@@ -1,0 +1,36 @@
+.program-card {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+
+
+  .program-thumnail {
+    position: relative;
+    .thumnail {
+      width: 200px;
+      height: 266px;
+      border-radius: 8px;
+      background: lightgray 50% / cover no-repeat, #212122;
+    }
+    .thumnail-btn {
+      width: 32px;
+      height: 32px;
+      position: absolute;
+      bottom: 10px;
+      right: 4px;
+      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 0;
+    }
+  }
+
+  .program-title {
+    color: #fff;
+    text-align: center;
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+  }
+}
