@@ -6,13 +6,14 @@ import Button from "../Button";
 import nextIcon from "../../assets/next.svg";
 import prevIcon from "../../assets/prev.svg";
 import { DEAFULT_PROGRAMS_PER_PAGE } from "../../constants";
+import React from "react";
 
 interface ProgramProps {
   programs: Program[];
   programsPerPage?: number;
 }
 
-const ProgramCarousel = ({ programs, programsPerPage=DEAFULT_PROGRAMS_PER_PAGE }: ProgramProps) => {
+const ProgramCarousel = React.memo(({ programs, programsPerPage=DEAFULT_PROGRAMS_PER_PAGE }: ProgramProps) => {
   const [visiblePrograms, setVisiblePrograms] = useState({
     startIndex: 0,
     endIndex: programsPerPage,
@@ -65,6 +66,6 @@ const ProgramCarousel = ({ programs, programsPerPage=DEAFULT_PROGRAMS_PER_PAGE }
       </div>
     </div>
   );
-};
+});
 
 export default ProgramCarousel;

@@ -4,7 +4,7 @@ import ProgramCarousel from "../../components/program-carousel/ProgramCarousel";
 import { Program } from "../../types/program";
 import { fetchPrograms } from "../../api/fetchPrograms";
 import { ERROR_MESSAGES } from "../../constants";
-import { LoadingComponent } from "../../components/LoadingComponent";
+import { LoadingIndicator } from "../../components/LoadingIndicator";
 import { ErrorMessage } from "../../components/ErrorMessage";
 
 const HomePage = () => {
@@ -31,7 +31,7 @@ const HomePage = () => {
   }, []);
 
   if (loading) {
-    return <LoadingComponent />;
+    return <LoadingIndicator />;
   }
 
   if (error) {
