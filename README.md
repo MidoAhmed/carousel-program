@@ -1,7 +1,5 @@
 # React + TypeScript + Vite
 
-
-
 # Questions:
 
 - Quelque éléments du design ne sont pas clairs ou manquantes dans Figma tel que:
@@ -26,6 +24,11 @@
    - Ajouter un champ `isHidden` pour chaque programme.
    - Ajouter un champ `isBlocked` pour chaque programme.
    - Ajouter un champ `isReported` pour chaque programme.
+
+# Usage:
+
+- Pour lancer le projet, il faut d'abord installer les dépendances avec la commande `npm install` ou `yarn install`.
+- Ensuite, il faut lancer le serveur de développement avec la commande `npm run dev` ou `yarn dev`.`.
 
 
 

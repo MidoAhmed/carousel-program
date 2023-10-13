@@ -5,67 +5,61 @@ import { Program } from "../../types/program";
 import Button from "../Button";
 import nextIcon from "../../assets/next.svg";
 import prevIcon from "../../assets/prev.svg";
+import { DEAFULT_PROGRAMS_PER_PAGE } from "../../constants";
 
 interface ProgramProps {
   programs: Program[];
+  programsPerPage?: number;
 }
 
-const ProgramCarousel = ({ programs }: ProgramProps) => {
-  const PROGRAMS_PER_PAGE = 6;
+const ProgramCarousel = ({ programs, programsPerPage=DEAFULT_PROGRAMS_PER_PAGE }: ProgramProps) => {
   const [visiblePrograms, setVisiblePrograms] = useState({
     startIndex: 0,
-    endIndex: PROGRAMS_PER_PAGE,
+    endIndex: programsPerPage,
+    currentPrograms: programs.slice(0, programsPerPage),
   });
 
-  const onPrevClick = () => {
-    prevPrograms();
-  };
-
-  const onNextClick = () => {
-    nextPrograms();
-  };
-
   const nextPrograms = () => {
-    const newStartIndex = visiblePrograms.startIndex + PROGRAMS_PER_PAGE;
-    const newEndIndex = visiblePrograms.endIndex + PROGRAMS_PER_PAGE;
+    const newStartIndex = visiblePrograms.startIndex + programsPerPage;
+    const newEndIndex = visiblePrograms.endIndex + programsPerPage;
 
     if (newStartIndex < programs.length) {
+      const slicedPrograms = programs.slice(newStartIndex, newEndIndex);
       setVisiblePrograms({
         startIndex: newStartIndex,
         endIndex: newEndIndex,
+        currentPrograms: slicedPrograms,
       });
     }
   };
 
   const prevPrograms = () => {
-    const newStartIndex = visiblePrograms.startIndex - PROGRAMS_PER_PAGE;
-    const newEndIndex = visiblePrograms.endIndex - PROGRAMS_PER_PAGE;
+    const newStartIndex = visiblePrograms.startIndex - programsPerPage;
+    const newEndIndex = visiblePrograms.endIndex - programsPerPage;
 
     if (newStartIndex >= 0) {
+      const slicedPrograms = programs.slice(newStartIndex, newEndIndex);
       setVisiblePrograms({
         startIndex: newStartIndex,
         endIndex: newEndIndex,
+        currentPrograms: slicedPrograms,
       });
     }
   };
 
-  const currentPrograms = programs.slice(
-    visiblePrograms.startIndex,
-    visiblePrograms.endIndex
-  );
 
   return (
     <div className="program-carousel-container">
       <div className="program-carousel">
-        <Button className="carousel-btn" onClick={onPrevClick}>
+        <Button className="carousel-btn" onClick={prevPrograms}>
           <img src={prevIcon} alt="Previous Icon" />
         </Button>
         <div className="program-carousel-inner">
-          {currentPrograms.map((program) => (
+          {visiblePrograms.currentPrograms.map((program) => (
             <ProgramCard key={program.id} program={program} />
           ))}
         </div>
-        <Button className="carousel-btn" onClick={onNextClick}>
+        <Button className="carousel-btn" onClick={nextPrograms}>
           <img src={nextIcon} alt="Next Icon" />
         </Button>
       </div>

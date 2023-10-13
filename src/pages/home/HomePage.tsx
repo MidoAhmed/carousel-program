@@ -5,7 +5,7 @@ import { Program } from "../../types/program";
 import { fetchPrograms } from "../../api/fetchPrograms";
 import { ERROR_MESSAGES } from "../../constants";
 import { LoadingComponent } from "../../components/LoadingComponent";
-import { ErrorComponent } from "../../components/ErrorComponent";
+import { ErrorMessage } from "../../components/ErrorMessage";
 
 const HomePage = () => {
   const [programs, setPrograms] = useState<Program[]>([]);
@@ -13,7 +13,7 @@ const HomePage = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetchPrograms()
+    fetchPrograms("MyQuery", {})
       .then(({ data, errors }) => {
         if (errors) {
           // Show user-friendly error message in the UI
@@ -21,8 +21,7 @@ const HomePage = () => {
         }
         setPrograms(data.program);
       })
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      .catch((err) => {
+      .catch(() => {
         // Show user-friendly error message in the UI
         setError(ERROR_MESSAGES.unexpectedError);
       })
@@ -36,7 +35,7 @@ const HomePage = () => {
   }
 
   if (error) {
-    return <ErrorComponent error={error} />;
+    return <ErrorMessage error={error} />;
   }
 
   return (
